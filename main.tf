@@ -89,8 +89,7 @@ resource aws_cloudwatch_metric_alarm cpu_low {
     ServiceName = var.service_name
   }
 
-  alarm_actions = [aws_appautoscaling_policy.scale_down.arn, var.alarm_sns_arn]
-  ok_actions    = [var.alarm_sns_arn]
+  alarm_actions = [aws_appautoscaling_policy.scale_down.arn]
 }
 
 resource aws_cloudwatch_metric_alarm memory_high {
