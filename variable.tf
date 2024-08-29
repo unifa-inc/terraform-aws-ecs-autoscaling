@@ -43,6 +43,11 @@ variable scaling_size {
   default = 1
   description = "Scaling size"
 }
+variable cpu_alarm_statistic {
+  type    = string
+  default = "Average"
+  description = "Statistics to set for cpu alarm"
+}
 variable up_cpu_threshold {
   type    = number
   default = 60

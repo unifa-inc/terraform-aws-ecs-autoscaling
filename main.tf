@@ -24,7 +24,7 @@ resource aws_appautoscaling_policy scale_up {
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
     cooldown                = local.up_clooldown
-    metric_aggregation_type = "Average"
+    metric_aggregation_type = var.cpu_alarm_statistic
 
     step_adjustment {
       metric_interval_lower_bound = 0
@@ -44,7 +44,7 @@ resource aws_appautoscaling_policy scale_down {
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
     cooldown                = local.down_clooldown
-    metric_aggregation_type = "Average"
+    metric_aggregation_type = var.cpu_alarm_statistic
 
     step_adjustment {
       metric_interval_upper_bound = 0
@@ -62,7 +62,7 @@ resource aws_cloudwatch_metric_alarm cpu_high {
   metric_name         = "CPUUtilization"
   namespace           = "AWS/ECS"
   period              = "60"
-  statistic           = "Average"
+  statistic           = var.cpu_alarm_statistic
   threshold           = var.up_cpu_threshold
 
   dimensions = {
@@ -81,7 +81,7 @@ resource aws_cloudwatch_metric_alarm cpu_low {
   metric_name         = "CPUUtilization"
   namespace           = "AWS/ECS"
   period              = "60"
-  statistic           = "Average"
+  statistic           = var.cpu_alarm_statistic
   threshold           = var.down_cpu_threshold
 
   dimensions = {
