@@ -19,8 +19,9 @@ No modules.
 | [aws_appautoscaling_policy.scale_down](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
 | [aws_appautoscaling_policy.scale_up](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_policy) | resource |
 | [aws_appautoscaling_target.ecs_target](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/appautoscaling_target) | resource |
-| [aws_cloudwatch_metric_alarm.cpu_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
-| [aws_cloudwatch_metric_alarm.cpu_low](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.cpu_high_scaling](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.cpu_high_notification](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
+| [aws_cloudwatch_metric_alarm.cpu_low_scaling](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 | [aws_cloudwatch_metric_alarm.memory_high](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_metric_alarm) | resource |
 
 ## Inputs
@@ -32,9 +33,15 @@ No modules.
 | <a name="input_autoscaling_cooldown"></a> [autoscaling\_cooldown](#input\_autoscaling\_cooldown) | Autoscaling cool down time | `number` | `600` | no |
 | <a name="input_autoscaling_role_arn"></a> [autoscaling\_role\_arn](#input\_autoscaling\_role\_arn) | Arn of autoscale role | `string` | n/a | yes |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name | `any` | n/a | yes |
+| <a name="input_cpu_evaluation_periods_notification"></a> [cpu\_evaluation\_periods\_notification](#input\_cpu\_evaluation\_periods\_notification) | CPU Evaluation Periods For Notify To Slack | `number` | `2` | no |
+| <a name="input_cpu_evaluation_periods_scaling"></a> [cpu\_evaluation\_periods\_scaling](#input\_cpu\_evaluation\_periods\_scaling) | CPU Evaluation Periods For Scaling ECS | `number` | `2` | no |
+| <a name="input_cpu_period"></a> [cpu\_period](#input\_cpu\_period) | CPU Period | `number` | `60` | no |
 | <a name="input_down_autoscaling_cooldown"></a> [down\_autoscaling\_cooldown](#input\_down\_autoscaling\_cooldown) | Down autoscaling cool down time | `number` | `null` | no |
 | <a name="input_down_cpu_threshold"></a> [down\_cpu\_threshold](#input\_down\_cpu\_threshold) | Down cpu threshold | `number` | `30` | no |
 | <a name="input_max_capacity"></a> [max\_capacity](#input\_max\_capacity) | Max capacity of ecs service | `number` | `2` | no |
+| <a name="input_memory_alarm_statistic"></a> [memory\_alarm\_statistic](#input\_memory\_alarm\_statistic) | Memory Alarm Statistics | `string` | `Average` | no |
+| <a name="input_memory_evaluation_periods"></a> [memory\_evaluation\_periods](#input\_memory\_evaluation\_periods) | Memory Evaluation Periods | `number` | `2` | no |
+| <a name="input_memory_period"></a> [memory\_period](#input\_memory\_period) | Memory Period | `number` | `60` | no |
 | <a name="input_min_capacity"></a> [min\_capacity](#input\_min\_capacity) | Min capacity of ecs service | `number` | `1` | no |
 | <a name="input_scaling_size"></a> [scaling\_size](#input\_scaling\_size) | Scaling size | `number` | `1` | no |
 | <a name="input_service_name"></a> [service\_name](#input\_service\_name) | Service name | `any` | n/a | yes |
